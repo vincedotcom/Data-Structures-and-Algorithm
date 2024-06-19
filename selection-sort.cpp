@@ -7,25 +7,34 @@ int main()
 {
     int a[] = {6, 5, 2, 3, 1, 4};
     int length = 6;
+
+    selection_sort(a, length);
+    for (int i = 0; i < length; i++)
+    {
+        cout << "a[" << i << "] = " << a[i] << endl;
+    }
     
     return 0;
 }
 
-void selection_sort(int a[], int length)
+void selection_sort(int a[], int length)  // selection sort function 
 {
-     for (int i = 0; i < (lenght - 1); i++)
+     for (int i = 0; i < (length - 1); i++)
      {
          int min_pos = i;
          for (int j = i + 1; j < length; j++)
          {
              if (a[j] < a[min_pos])
              {
-                      min_pos = j;
-                         
-             }
-                      
-         
+                min_pos = j;          
+             }   
          }   
+         if (min_pos != i)
+         {
+            int temp = a[i];
+            a[i] = a[min_pos];
+            a[min_pos] = temp;
+         }
      }
 }
      
