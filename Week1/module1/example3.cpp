@@ -19,7 +19,6 @@ private:
 public:
   void read() {
     cout << "Enter Name :";
-    // what is getline?
     getline (cin, name);
 
     cout << "Enter Registration Number :";
