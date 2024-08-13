@@ -2,12 +2,20 @@
 #include <string>
 using namespace std;
 
+
+// Class name is Student Class
 class StudentClass {
+// has a private variables - means that the other class has no access to this 
 private:
   string name;
   int regNo, sub1, sub2, sub3;
   float total, avg;
 
+
+// has a public methods and functions
+// Method has a void and then the name of the method
+// Method is used as input and manipulating variables
+// while function is use to return a value and has a parameter
 public:
   void read() {
     cout << "Enter Name :";
