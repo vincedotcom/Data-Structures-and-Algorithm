@@ -18,15 +18,13 @@ class RectangleType {
   }
 
   float returnPerimeter() {
-    return 2 * (width + height);
+    return 2 * (width + height); // fixed the error found in the module wherein the formula for the perimeter is multiplying the width and height
 
   }
 
   float returnArea() {
     return width * height;
   }
-
-
 
 };
 
