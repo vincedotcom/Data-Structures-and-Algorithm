@@ -1,45 +1,44 @@
 #include <iostream>
 #include <string> 
 #include <iomanip> 
-#include <algorithm> 
 
 using namespace std;
 
-class StudentRec {
+class StudentRecord {
   private:
-    string studentName, studentMajor;
-    float studentGPA, studentTuition;
+    string Name, Major;
+    float GPA;
+    double Tuition;
 
   public:
     void setStudentData(string name, string major, float gpa, float tuition) {
-      studentName = name;
-      studentMajor = major;
-      studentGPA = gpa;
-      studentTuition = tuition;
+      Name = name;
+      Major = major;
+      GPA = gpa;
+      Tuition = tuition;
     }
-
-    string returnStudentName() {
-      return studentName;
+   string returnStudentName() {
+      return Name;
     }
 
     string returnStudentMajor() {
-      return studentMajor;
+      return Major;
     }
 
     float returnStudentGPA() {
-      return studentGPA;
+      return GPA;
     }
 
     float returnStudentTuition() {
-      return studentTuition;
+      return Tuition;
     }
 };
 
 int main() {
   float gpa, tuition;
-  string name, major, loweredStudentMajor;
+  string name, major, loweredMajor;
 
-  StudentRec aStudent; // declare a new datatype called studentRec as aStudent
+  StudentRecord aStudent; // declare a new datatype called studentRec as aStudent
 
   cout << "Enter Student Name: ";
   getline(cin, name); 
@@ -59,12 +58,11 @@ int main() {
   
   aStudent.setStudentData(name, major, gpa, tuition); // push the data to aStudent
 
-  loweredStudentMajor = aStudent.returnStudentMajor(); 
-  transform(loweredStudentMajor.begin(), loweredStudentMajor.end(), loweredStudentMajor.begin(), ::tolower); // transform to lowercase 
+  
 
   // return the student's name and the gpa if the student course/program is computer science
   // if not computer science return or display to the screen the student's tuition
-  if (loweredStudentMajor == "computer science") {
+  if (aStudent.returnStudentMajor() == "Computer Science") {
     cout << aStudent.returnStudentName() <<"'s GPA is "<<fixed<<setprecision(1) << aStudent.returnStudentGPA(); 
   } else { 
     cout <<"Students Tuition is $"<<fixed<< setprecision(2) << aStudent.returnStudentTuition(); 
