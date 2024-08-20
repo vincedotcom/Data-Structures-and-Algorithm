@@ -2,30 +2,31 @@
 using namespace std;
 
 class Temperature_Converter {
-  public:
-    float Convert_Celsius_to_Fahrenheit(float celsius) {
-      return celsius * 32;
+public:
+    void Convert_Celsius_to_Fahrenheit(int& celsius, int& fahrenheit) {
+        fahrenheit = celsius * 32; 
     }
 
-    float Convert_Fahrenheit_to_Celsius(float fahrenheit) {
-      return fahrenheit / 32;
+    void Convert_Fahrenheit_to_Celsius(int& fahrenheit, int& celsius) {
+        celsius = fahrenheit / 32;
     }
-
-  
 };
 
 int main() {
-  float celsius, fahrenheit;
+    Temperature_Converter converter;
+    int celsius, fahrenheit;
 
-  Temperature_Converter temperature1;
+    cout << "Enter Celsius: ";
+    cin >> celsius;
 
-  cout << "Enter Celsius: ";
-  cin >> celsius;
+    cout << "Enter Fahrenheit: ";
+    cin >> fahrenheit;
 
-  cout << "Enter Fahrenheit: ";
-  cin >> fahrenheit;
+    converter.Convert_Celsius_to_Fahrenheit(celsius, fahrenheit);
+    cout << celsius << " degree celsius is equivalent to " << fahrenheit << " fahrenheit" << endl;
 
-  cout << celsius<< " degree is equivalent to " << temperature1.Convert_Celsius_to_Fahrenheit(celsius) << " Fahrenheit" << endl;
-  cout << fahrenheit << " fahrenheit is equivalent to " << temperature1.Convert_Fahrenheit_to_Celsius(fahrenheit) << " Degree Celsius" << endl;
-  return 0;
+    converter.Convert_Fahrenheit_to_Celsius(fahrenheit, celsius);
+    cout << fahrenheit << " fahrenheit is equivalent to " << celsius << " degree celsius" << endl;
+
+    return 0;
 }

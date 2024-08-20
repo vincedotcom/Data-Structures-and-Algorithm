@@ -1,17 +1,18 @@
 #include <iostream>
 using namespace std;
 
+void change(int& num) {
+  num = 1;
+}
+
 int main() {
 
-  // variable declaration
-  int num = 10; // regular variable declaration
-  int *pointer; // declare the pointer variable
+  int num = 10;
 
-  pointer = &num; // access the address
+  cout << change(num);
+  
 
-  cout << num << endl;
-  cout << pointer << endl;
-  cout << *pointer;
+
 
   return 0;
 }
