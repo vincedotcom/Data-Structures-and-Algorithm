@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 class Array {
 public:
   int findTheMostOccurred(int (&arrOfNum)[10]) {
