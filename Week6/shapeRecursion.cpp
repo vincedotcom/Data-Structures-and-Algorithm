@@ -26,7 +26,7 @@ class Recursive {
 
 int main() {
   Recursive shape;
-  shape.Recursion(5);
+  shape.Recursion(3);
   
   return 0;
 }
