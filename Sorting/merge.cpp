@@ -1,75 +1,71 @@
 #include <iostream>
 using namespace std;
 
-// Merge function to combine two halves into a sorted array
-void merge(int arr[], int left, int mid, int right) {
-    int n1 = mid - left + 1;  // Size of the left subarray
-    int n2 = right - mid;     // Size of the right subarray
 
-    // Create temporary arrays
-    int leftArr[n1], rightArr[n2];
+void merge(int arr[], int left, int mid, int right){
+    int s1 = mid - left + 1;
+    int s2 = right - mid;
 
-    // Copy data into the temporary arrays
-    for (int i = 0; i < n1; i++)
-        leftArr[i] = arr[left + i];
-    for (int j = 0; j < n2; j++)
-        rightArr[j] = arr[mid + 1 + j];
+    int tempL[s1], tempR[s2];
 
-    // Merge the temporary arrays back into the main array
-    int i = 0;     // Initial index of the left subarray
-    int j = 0;     // Initial index of the right subarray
-    int k = left;  // Initial index of the merged array
+    for (int i = 0; i < s1; i++) {
+        tempL[i] = arr[left + i];
+    }
+    for (int j = 0; j < s2; j++) {
+        tempR[j] = arr[mid + 1 + j];
+    }
 
-    while (i < n1 && j < n2) {
-        if (leftArr[i] <= rightArr[j]) {
-            arr[k] = leftArr[i];
+    int i = 0; 
+    int j = 0; 
+    int k = left; 
+
+    while (i < s1 && j < s2) {
+        if (tempL[i] <= tempR[j]){
+            arr[k] = tempL[i];
             i++;
         } else {
-            arr[k] = rightArr[j];
+            arr[k] = tempR[j];
             j++;
         }
         k++;
     }
 
-    // Copy remaining elements of leftArr[], if any
-    while (i < n1) {
-        arr[k] = leftArr[i];
+    while (i < s1){
+        arr[k] = tempL[i];
         i++;
         k++;
     }
 
-    // Copy remaining elements of rightArr[], if any
-    while (j < n2) {
-        arr[k] = rightArr[j];
+    while (k < s2) {
+        arr[k] = tempR[j];
         j++;
         k++;
     }
 }
 
-// MergeSort function to divide the array and merge them back in sorted order
+
 void mergeSort(int arr[], int left, int right) {
     if (left < right) {
-        int mid = left + (right - left) / 2;
-
-        // Sort first and second halves
+        int mid = left + (right - left)/2;
+        
         mergeSort(arr, left, mid);
         mergeSort(arr, mid + 1, right);
 
-        // Merge the sorted halves
         merge(arr, left, mid, right);
     }
+
 }
 
 int main() {
-    int arr[] = {15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int n = sizeof(arr) / sizeof(arr[0]);
 
-    mergeSort(arr, 0, n - 1);
+    int arr[] = {5, 4, 3, 2, 1};
+    int n = sizeof(arr)/sizeof(arr[0]);
 
-    cout << "Sorted array: ";
-    for (int i = 0; i < n; i++)
+    mergeSort(arr, 0, n-1); 
+
+    for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
-    cout << endl;
+    }
 
     return 0;
 }

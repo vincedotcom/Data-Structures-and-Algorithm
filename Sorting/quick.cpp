@@ -29,11 +29,11 @@ int partition(int arr[], int low, int high) {
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
         // Find the pivot element's correct position
-        int pi = partition(arr, low, high);
+        int pivot = partition(arr, low, high);
 
         // Recursively sort the elements before and after the pivot
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        quickSort(arr, low, pivot - 1);
+        quickSort(arr, pivot + 1, high);
     }
 }
 
