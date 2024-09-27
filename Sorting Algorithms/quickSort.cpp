@@ -1,49 +1,49 @@
 #include <iostream>
 using namespace std;
 
-void quickSort(int arr[], int low, int high) {
+void quickieSort(int arr[], int low, int high){
   if (low >= high) {
     return;
   }
 
   int start = low;
   int end = high;
+
   int mid = start + (end - start) / 2;
 
   int pivot = arr[mid];
 
   while (start <= end) {
-    while (arr[start] < pivot) {
+    while (arr[start] < pivot){
       start++;
     }
-
     while (arr[end] > pivot) {
       end--;
     }
-
     if (start <= end) {
-      int temp = arr[start];
-      arr[start] = arr[end];
-      arr[end] = temp; 
+      int temp = arr[end];
+      arr[end] = arr[start];
+      arr[start] = temp;
       start++;
       end--;
     }
   }
 
-  quickSort(arr, low, end);
-  quickSort(arr, start, high);
+  quickieSort(arr, low, end);
+  quickieSort(arr, start, high);
 
-}
+} 
 
 int main() {
 
-  int arr[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+  int arr[] = {5, 4, 3, 2, 2, 2, 2 };
+
   int size = sizeof(arr)/sizeof(arr[0]);
 
-  quickSort(arr, 0, size - 1);
+  quickieSort(arr, 0, size-1);
 
   for (int i = 0; i < size; i++) {
-    cout << arr[i] <<" ";
+    cout << arr[i] << endl;
   }
 
   return 0;

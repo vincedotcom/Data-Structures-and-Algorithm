@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 void merge(int arr[], int left, int mid, int right){
     int s1 = mid - left + 1;
     int s2 = right - mid;
@@ -36,13 +35,12 @@ void merge(int arr[], int left, int mid, int right){
         k++;
     }
 
-    while (k < s2) {
+    while (j < s2) {
         arr[k] = tempR[j];
         j++;
         k++;
     }
 }
-
 
 void mergeSort(int arr[], int left, int right) {
     if (left < right) {
