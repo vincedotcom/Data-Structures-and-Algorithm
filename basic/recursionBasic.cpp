@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void recursion(int n) {
+void message1();
+
+void message1(int n) {
   if (n == 0) {
     return;
   }
-  cout << "hello \n";
-  recursion(n-1);
-
+  cout << "hello world\n";
+  message1(n-1);
 }
 
-
-
 int main() {
-  // Removed cout << n; as n is not declared.
-  recursion(5);
+
+  message1(5);
+
   return 0;
 }
