@@ -2,11 +2,12 @@
 using namespace std;
 
 
-
 struct Node {
   int info;
   Node* link;
 };
+
+
 
 void printNodeInfo(Node* current) {
   while (current != nullptr) {

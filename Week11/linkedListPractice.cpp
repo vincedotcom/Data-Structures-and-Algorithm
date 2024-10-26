@@ -79,8 +79,8 @@ int main() {
   PrintEveryOtherNode(head);
   cout << endl;
 
-  cout << head << endl;
-  cout << &head << endl;
+  cout << "what?? " <<head << endl; // this is the address of actual node created in the heap
+  cout << &head << endl; // this is the address of the head pointer
 
   InsertHeadNode(&head);
   
