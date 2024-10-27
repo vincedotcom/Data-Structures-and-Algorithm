@@ -4,11 +4,14 @@ using namespace std;
 int main() {
 
   // int n = 5;
-  int* ptr;
+  // int* ptr = &n;
 
-  cout << ptr << endl;
-  cout << &ptr << endl;
-  cout << *ptr;
+  // cout <<
+
+
+  // cout << ptr << endl;
+  // cout << &ptr << endl;
+  // cout << *ptr;
 
 
 //   cout << "The value of n is "<< n << endl;
