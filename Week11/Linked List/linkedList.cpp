@@ -165,7 +165,12 @@ Node* insertPos(Node* head, int pos, int data)
         1. create prev Node pointer variable
         2. declare a counter = 1
         3. traverse the linked list 
-            1. if the linked list is not empty and if count is less than the position - 1
+            1. move the head to the previous node we want to insert
+        4. after finding the prev head we want to insert
+            1. create new node
+            2. point the new node to the prev next node 
+            3. point the prev node to the new node
+
     */
     if (pos < 1) {
         cout << "Invalid position!" << endl;
