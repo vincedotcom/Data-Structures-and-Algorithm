@@ -9,7 +9,7 @@ struct Node
   Node(int data)
   {
     this->data = data;
-    link = nullptr;
+    this->link = nullptr;
   }
 };
 
@@ -24,16 +24,19 @@ void traverse(Node *head)
   cout << endl;
 }
 
-Node *reverse(Node *head)
-{
-  Node *current = head;
-  Node *prev = nullptr;
-  Node *next = nullptr;
-  while (current != nullptr)
-  {
-    next = head->link;
-  }
+Node* reverse(Node* head) {
+    Node* current = head;
+    Node* prev = nullptr;  
+  
+    while (current != nullptr) {
+        Node* next = current->link;
+        current->link = prev;
+        prev = current;     
+        current = next;
+    } 
+    return prev;  
 }
+
 int main()
 {
 
@@ -44,7 +47,8 @@ int main()
   head->link = second;
   second->link = third;
 
-  traverse(head);
+  
+  traverse(reverse(head));
 
   return 0;
 }
