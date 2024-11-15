@@ -341,18 +341,47 @@ struct List
 
         return head;
     }
+
+    Node *reverseList(Node *head)
+    {
+        Node *prev = nullptr;
+        Node *current = head;
+        Node *next = nullptr;
+        while (current != nullptr)
+        {
+            next = current->next; 
+            current->next = prev; 
+            prev = current; 
+            current = next; 
+        }
+        head = prev;
+        return head;
+    }
+
+    Node* middleNode(Node* head) {
+        Node* slow = head;
+        Node* fast = head;
+
+        while(fast->next != nullptr && fast != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
 };
+
 
 int main()
 {
     List myList;
-    List::Node *head = new List::Node(3);
-    head->next = new List::Node(12);
-    head->next->next = new List::Node(12);
-    head->next->next->next = new List::Node(12);
-    head->next->next->next->next = new List::Node(1);
+    List::Node *head = new List::Node(1);
+    head->next = new List::Node(2);
+    head->next->next = new List::Node(3);
+    head->next->next->next = new List::Node(4);
+    head->next->next->next->next = new List::Node(5);
 
-    List::Node *newNode = myList.deleteNode(head, 0);
+    List:: Node *mid = myList.middleNode(head);
+    cout << mid->data;
 
     return 0;
 }
